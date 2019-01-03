@@ -1,4 +1,6 @@
-ud120-projects
+Enron Data Exercise
 ==============
 
-Starter project code for students taking Udacity ud120
+A group of Machine Learning Exercises made on Enron email data.
+
+Following the Intro to Machine Learning at Udacity course.
