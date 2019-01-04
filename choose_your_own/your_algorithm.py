@@ -1,4 +1,5 @@
 #!/usr/bin/python
+from time import time
 
 import matplotlib.pyplot as plt
 from prep_terrain_data import makeTerrainData
@@ -31,10 +32,24 @@ plt.show()
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
 
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score as accuracy
 
+clf = RandomForestClassifier(n_estimators=18, max_depth=2)
 
+t0 = time()  # Calculate training time
+clf.fit(features_train, labels_train)
+print "Training time:", round(time()-t0, 3), "s"
 
+t1 = time()  # Calculate predicting time
+y_pred = clf.predict(features_test)
+print "Prediction time:", round(time()-t1, 3), "s"
 
+t2 = time()  # Calculate accuracy time
+acc = accuracy(labels_test, y_pred)
+print "Accuracy time:", round(time()-t2, 3), "s"
+
+print "Accuracy: %s" % acc
 
 
 
